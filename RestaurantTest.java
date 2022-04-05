@@ -100,7 +100,7 @@ class RestaurantTest {
 
         addRestaurantDetails();
         List<String>selectedItems = Arrays.asList("Sweet corn soup","Vegetable lasagne");
-        assertEquals(388,restaurant.getItemSelectAmount());
+        assertEquals(388,restaurant.getItemSelectAmount(selectedItems));
     }
 
 

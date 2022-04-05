@@ -68,7 +68,13 @@ public class Restaurant {
     }
 
     public String getName() {
+
         return name;
+    }
+
+    public int getItemSelectAmount(){
+        int sum = 1;
+        return sum;
     }
 
 }

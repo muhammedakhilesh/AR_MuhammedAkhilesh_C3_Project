@@ -5,6 +5,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -68,11 +71,11 @@ class RestaurantTest {
     }
     @Test
     public void removing_item_from_menu_should_decrease_menu_size_by_1() throws itemNotFoundException {
-        LocalTime openingTime = LocalTime.parse("10:30:00");
-        LocalTime closingTime = LocalTime.parse("22:00:00");
-        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+      //  LocalTime openingTime = LocalTime.parse("10:30:00");
+       // LocalTime closingTime = LocalTime.parse("22:00:00");
+       // restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+       // restaurant.addToMenu("Sweet corn soup",119);
+      //  restaurant.addToMenu("Vegetable lasagne", 269);
         addRestaurantDetails();
         int initialMenuSize = restaurant.getMenu().size();
         restaurant.removeFromMenu("Vegetable lasagne");
@@ -90,4 +93,16 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDERVALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void selecting_item_price_calculation_should_be_correct() {
+
+        addRestaurantDetails();
+        List<String>selectedItems = Arrays.asList("Sweet corn soup","Vegetable lasagne");
+        assertEquals(388,restaurant.getItemSelectAmount());
+    }
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDERVALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
